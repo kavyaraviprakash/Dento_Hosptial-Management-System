@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1dnpayl0v282b-oa0s1^82o82(si^r8+djt^v0#kg2miwlrbb_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'hospital.User'
 # Application definition
