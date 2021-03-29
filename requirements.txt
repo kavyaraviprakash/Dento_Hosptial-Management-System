@@ -1,3 +1,0 @@
-django-crispy-forms
-django
-pillow
