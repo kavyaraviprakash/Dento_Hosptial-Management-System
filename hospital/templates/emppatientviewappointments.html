@@ -55,7 +55,9 @@
                                     </tr>
 
                                 </table>
-                                <a href="{% url 'AppointmentDeleteView' Appointment.pk %}" class="btn btn-primary">Delete</a></>
+                                <div>
+                                <a href="{% url 'AppointmentDeleteView' Appointment.pk %}" class="btn btn-primary">Delete</a>
+                                <a href="{% url 'empAppEdit' Appointment.pk %}" class="btn btn-primary">Update</a>
                             </div>
                         </li>
                     </ul>

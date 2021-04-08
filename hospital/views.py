@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.generic import ListView, DeleteView
+from django.views.generic import ListView, DeleteView, UpdateView
 
 from .models import Patient, Appointment, Receptionist
 
@@ -174,3 +174,23 @@ class AppointmentDeleteView(LoginRequiredMixin, DeleteView):
     success_url = 'EmpListView'
 
 
+def AddAppointment(request):
+    submitted = False
+    if request.method == "POST":
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.save()
+            return HttpResponseRedirect('/appointment?submitted=True')
+    else:
+        form = AppointmentForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'addappointments.html', {'form': form, 'submitted': submitted})
+
+class empAppEdit(LoginRequiredMixin, UpdateView):
+    model = Appointment
+    fields = ['doctorname', 'doctoremail', 'patientname', 'patientemail', 'symptoms', 'prescription',
+              ]
+    template_name = 'employee_appointment.html'
+    success_url = reverse_lazy('employee_homepage')

@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
-from .views import userprofile, AppointmentListView, EmpListView, AppointmentDeleteView
+from .views import userprofile, AppointmentListView, EmpListView, AppointmentDeleteView, empAppEdit
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -21,7 +21,10 @@ urlpatterns = [
     path('appoinmentlist/', AppointmentListView.as_view(), name='AppointmentListView'),
     path('employeelist/', EmpListView.as_view(), name='EmpListView'),
     path('<int:pk>/delete/', AppointmentDeleteView.as_view(), name='AppointmentDeleteView'),
+    path('<int:pk>/update/', empAppEdit.as_view(), name='empAppEdit'),
     path('appointment/', views.MakeAppointments, name='MakeAppointments'),
+    path('addappointment/', views.AddAppointment, name='AddAppointment'),
+    #path('empappointment/', views.emp_appointment, name='emp_appointments'),
     path('reset/', auth_views.PasswordResetView.as_view(template_name='password_reset_form.html'), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name = 'password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name = 'password_reset_confirm.html'), name='password_reset_confirm'),
