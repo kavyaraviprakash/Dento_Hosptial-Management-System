@@ -24,7 +24,7 @@ SECRET_KEY = '1dnpayl0v282b-oa0s1^82o82(si^r8+djt^v0#kg2miwlrbb_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'hospital.User'
 # Application definition
@@ -56,9 +56,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-BOOTSTRAP4 = {
-    'include_jquery': True,
-}
 ROOT_URLCONF = 'Dento_HMS.urls'
 
 TEMPLATES = [
@@ -127,6 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 #AUTH_USER_MODEL = 'hospital.CustomUser'
