@@ -22,12 +22,12 @@
                 <a href={% url 'AddAppointment' %}>Add Appointments</a>
             </li>
   {% endif %}
-
   {% if not user.is_staff %}
-            <li>
-                <a href="{% url 'AppointmentListView' %}">View Appointments</a>
-            </li>
-  {% else %}
+          <li>
+                <a href={% url 'AppointmentListView' %}>View Appointments</a>
+          </li>
+  {% endif %}
+  {% if  user.is_staff %}
             <li>
                 <a href={% url 'EmpListView' %}>View Appointments</a>
             </li>

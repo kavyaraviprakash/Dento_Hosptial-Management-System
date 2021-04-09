@@ -154,7 +154,7 @@ class AppointmentListView(LoginRequiredMixin, ListView):
         if self.request.user.is_staff:
             return Appointment.objects.all()
         else:
-            return Appointment.objects.filter(author=self.request.user.is_patient)
+            return Appointment.objects.filter(author=self.request.user)
 
 
 class EmpListView(LoginRequiredMixin, ListView):
